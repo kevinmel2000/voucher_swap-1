@@ -11,6 +11,6 @@
  * Description:
  * 	Run the voucher_swap exploit.
  */
-bool voucher_swap(void);
+_Bool voucher_swap(void);
 
 #endif

@@ -20,7 +20,7 @@
  * Description:
  * 	Checks if the given address is the kernel base.
  */
-static bool
+bool
 is_kernel_base(uint64_t base) {
 	// Read the data at the base address as a Mach-O header.
 	struct mach_header_64 header = {};

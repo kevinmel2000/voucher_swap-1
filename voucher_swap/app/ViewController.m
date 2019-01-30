@@ -13,6 +13,7 @@
 #import "log.h"
 #import <mach/mach.h>
 #import "kernel_memory.h"
+#import "kernel_slide.h"
 
 @interface ViewController ()
 

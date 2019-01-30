@@ -42,7 +42,6 @@
         [self presentViewController:alert animated:YES completion:nil];
 }
 
-
 - (IBAction)go:(id)sender {
     [sender setEnabled:NO];
     sleep(1);

@@ -27,7 +27,10 @@
         printf("non-16K devices are not currently supported.\n");
         return false;
     }
-    voucher_swap();
+    if (!voucher_swap()) {
+        printf("exploit failed!\n");
+        return false;
+    }
     if (!MACH_PORT_VALID(kernel_task_port)) {
         printf("tfp0 is invalid?\n");
         return false;

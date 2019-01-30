@@ -8,12 +8,6 @@
 
 #import "AppDelegate.h"
 
-#import "voucher_swap.h"
-#import "kernel_call.h"
-#import "log.h"
-#import <mach/mach.h>
-#import "kernel_memory.h"
-
 @interface AppDelegate ()
 
 @end
@@ -22,16 +16,6 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    vm_size_t size = 0;
-    host_page_size(mach_host_self(), &size);
-    if (size < 16000) {
-        printf("non-16K devices are not currently supported.\n");
-    }
-	voucher_swap();
-    if (!MACH_PORT_VALID(kernel_task_port)) {
-        printf("tfp0 is invalid?\n");
-        return NO;
-    }
 	return YES;
 }
 

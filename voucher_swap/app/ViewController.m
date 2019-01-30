@@ -8,17 +8,49 @@
 
 #import "ViewController.h"
 #import "kernel_memory.h"
+#import "voucher_swap.h"
+#import "kernel_call.h"
+#import "log.h"
+#import <mach/mach.h>
+#import "kernel_memory.h"
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *tfp0_label;
 
 @end
 
 @implementation ViewController
 
+- (bool)voucher_swap {
+    vm_size_t size = 0;
+    host_page_size(mach_host_self(), &size);
+    if (size < 16000) {
+        printf("non-16K devices are not currently supported.\n");
+        return false;
+    }
+    voucher_swap();
+    if (!MACH_PORT_VALID(kernel_task_port)) {
+        printf("tfp0 is invalid?\n");
+        return false;
+    }
+    return true;
+}
+
+- (IBAction)go:(id)sender {
+    [sender setEnabled:NO];
+    sleep(1);
+    bool success = [self voucher_swap];
+    if (success) {
+        // post exploitation...
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"success" message:[NSString stringWithFormat:@"tfp0: %i", kernel_task_port] preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+    } else {
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"failed" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+    }
+}
+
 - (void)viewDidLoad {
 	[super viewDidLoad];
-    _tfp0_label.text = [NSString stringWithFormat:@"tfp0: %u", kernel_task_port];
 }
 
 

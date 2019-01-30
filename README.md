@@ -1,2 +1,2 @@
 # voucher_swap
-A fork of bazaar's voucher_swap.
+A fork of bazad's voucher_swap.

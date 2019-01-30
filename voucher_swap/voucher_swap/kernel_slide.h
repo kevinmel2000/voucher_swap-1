@@ -37,6 +37,15 @@ bool kernel_slide_init(void);
  */
 bool kernel_slide_init_with_kernel_image_address(uint64_t address);
 
+/*
+ * is_kernel_base
+ *
+ * Description:
+ * 	Checks if the given address is the kernel base.
+ */
+bool
+is_kernel_base(uint64_t base);
+
 #undef extern
 
 #endif

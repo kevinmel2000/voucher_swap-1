@@ -38,17 +38,28 @@
     return true;
 }
 
+- (void)failure {
+	UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"failed" message:nil preferredStyle:UIAlertControllerStyleAlert];
+        [self presentViewController:alert animated:YES completion:nil];
+}
+
 - (IBAction)go:(id)sender {
     [sender setEnabled:NO];
     sleep(1);
     bool success = [self voucher_swap];
     if (success) {
         // post exploitation...
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"success" message:[NSString stringWithFormat:@"tfp0: %i", kernel_task_port] preferredStyle:UIAlertControllerStyleAlert];
+        kernel_slide_init();
+        uint64_t kernel_base = kernel_slide + 0xFFFFFFF007004000;
+        if (!is_kernel_base(kernel_base)) {
+		[self failure];
+            return;
+        }
+        printf("kernel base: %llx\n", kernel_base);
+        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"success" message:[NSString stringWithFormat:@"tfp0: %i\nkernel base: %llx", kernel_task_port, kernel_base] preferredStyle:UIAlertControllerStyleAlert];
         [self presentViewController:alert animated:YES completion:nil];
     } else {
-        UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"failed" message:nil preferredStyle:UIAlertControllerStyleAlert];
-        [self presentViewController:alert animated:YES completion:nil];
+        [self failure];
     }
 }
 

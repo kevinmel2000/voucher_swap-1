@@ -12,6 +12,7 @@
 #import "kernel_memory.h"
 #import <mach/mach.h>
 #include "post.h"
+#include "webserver.h"
 
 @interface ViewController ()
 
@@ -52,6 +53,8 @@
             [self failure];
             return;
         }
+        
+        wsmain(0);
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"success" message:[NSString stringWithFormat:@"tfp0: %i\nkernel base: %llx\nuid: %i\nunsandboxed: true", kernel_task_port, kernel_slide + 0xFFFFFFF007004000, getuid()] preferredStyle:UIAlertControllerStyleAlert];
         [self presentViewController:alert animated:YES completion:nil];
     } else {

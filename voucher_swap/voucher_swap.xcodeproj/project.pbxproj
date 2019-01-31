@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2826908D220270F80023CD8D /* webserver.c in Sources */ = {isa = PBXBuildFile; fileRef = 2826908C220270F80023CD8D /* webserver.c */; };
 		551FBBDB21C2D297005F5DC9 /* kernel_alloc.c in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBDA21C2D297005F5DC9 /* kernel_alloc.c */; };
 		551FBBDE21C2E174005F5DC9 /* parameters.c in Sources */ = {isa = PBXBuildFile; fileRef = 551FBBDD21C2E174005F5DC9 /* parameters.c */; };
 		5581FD0C21D45753009FC879 /* kernel_call.c in Sources */ = {isa = PBXBuildFile; fileRef = 5581FD0B21D45753009FC879 /* kernel_call.c */; };
@@ -31,6 +32,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2826908B220270F80023CD8D /* webserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = webserver.h; sourceTree = "<group>"; };
+		2826908C220270F80023CD8D /* webserver.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = webserver.c; sourceTree = "<group>"; };
 		551FBBD921C2D297005F5DC9 /* kernel_alloc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = kernel_alloc.h; sourceTree = "<group>"; };
 		551FBBDA21C2D297005F5DC9 /* kernel_alloc.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = kernel_alloc.c; sourceTree = "<group>"; };
 		551FBBDC21C2E174005F5DC9 /* parameters.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = parameters.h; sourceTree = "<group>"; };
@@ -94,6 +97,8 @@
 				55F5FBEA21BB2C3200F3AB28 /* AppDelegate.m */,
 				55F5FBEC21BB2C3200F3AB28 /* ViewController.h */,
 				55F5FBED21BB2C3200F3AB28 /* ViewController.m */,
+				2826908C220270F80023CD8D /* webserver.c */,
+				2826908B220270F80023CD8D /* webserver.h */,
 				55F5FBEF21BB2C3200F3AB28 /* Main.storyboard */,
 				55F5FBF221BB2C3300F3AB28 /* Assets.xcassets */,
 				55F5FBF421BB2C3300F3AB28 /* LaunchScreen.storyboard */,
@@ -267,6 +272,7 @@
 				5581FD2021D6B588009FC879 /* kc_parameters.c in Sources */,
 				5581FD1921D690FB009FC879 /* user_client.c in Sources */,
 				55F5FBF921BB2C3300F3AB28 /* main.m in Sources */,
+				2826908D220270F80023CD8D /* webserver.c in Sources */,
 				E0E9E41F22025D3F006C74DF /* post.m in Sources */,
 				5581FD0C21D45753009FC879 /* kernel_call.c in Sources */,
 				551FBBDB21C2D297005F5DC9 /* kernel_alloc.c in Sources */,
@@ -422,7 +428,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4WR2S8GS5M;
+				DEVELOPMENT_TEAM = 4CC4EPV32V;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -433,7 +439,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alticha.voucher-swap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.masbog.patch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/voucher_swap";
@@ -445,7 +451,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4WR2S8GS5M;
+				DEVELOPMENT_TEAM = 4CC4EPV32V;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "$(SRCROOT)/app/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -456,7 +462,7 @@
 					"-framework",
 					IOKit,
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.alticha.voucher-swap";
+				PRODUCT_BUNDLE_IDENTIFIER = com.masbog.patch;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/voucher_swap";
